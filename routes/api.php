@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TasksController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VisitationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::post('/token/register',[AuthController::class,'register']);
 Route::get('/userList',[UserController::class,'listUsers']);
 Route::post('/registerUser',[UserController::class,'registerAUser']);
 Route::put('/updateUser/{id}',[UserController::class,' updateAUser']);
+Route::get('/visitation', [VisitationController::class, 'scheduleVisit']);
+Route::post('/approve', [AdminController::class, 'approve']);
+Route::post('/reject', [AdminController::class, 'reject']);
 
 //admin AdminListing
 Route::get('/AdminListings',[AdminController::class,'AdminListing']);
